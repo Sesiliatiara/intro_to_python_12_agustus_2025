@@ -5,7 +5,7 @@
 #  U = Update (Memperbarui)
 #  D = Delete (Menghapus)
 
-buah = ["Salah pondo"] # ini sebutannya instansiasi (mempersiapkan benda apa yang disimpan)
+buah = ["Salak pondo"] # ini sebutannya instansiasi (mempersiapkan benda apa yang disimpan)
 
 # Add (Create)
 buah.append("Satu")

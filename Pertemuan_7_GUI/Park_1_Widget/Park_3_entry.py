@@ -8,7 +8,7 @@ def sapaan():
 
 # jendela
 window = tk.Tk()
-window.title("Contoh Penggunaan Button")
+window.title("Contoh Penggunaan Entry")
 
 # isi content
 label_sapaan = ttk.Label(
