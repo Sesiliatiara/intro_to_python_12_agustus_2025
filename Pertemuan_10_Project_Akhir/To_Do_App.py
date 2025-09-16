@@ -1,8 +1,13 @@
+import os
+
 class ToDoApp:
     def __init__(self, filetugas="tugas.txt"):
         self.file_tugas = filetugas
         self.daftar_tugas = []
         self.read_tugas()
+    
+    def clear_screen(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def simpan_tugas(self):
         file = open(self.file_tugas, "w")
@@ -27,6 +32,8 @@ class ToDoApp:
         self.daftar_tugas.append((tugas_baru, deadline))
         self.simpan_tugas()
         print(f"Tugas {tugas_baru} dengan (Deadline: {deadline}) berhasil ditambahkan")
+        input("Tekan Enter untuk melanjutkan...")
+        self.clear_screen()
 
     def lihat_tugas(self):
         if not self.daftar_tugas:
@@ -36,6 +43,8 @@ class ToDoApp:
             for i in range(len(self.daftar_tugas)):
                 nama, deadline = self.daftar_tugas[i]
                 print(f"{i+1}. {nama} (Deadline: {deadline})")
+        input("Tekan Enter untuk melanjutkan...")
+        self.clear_screen()
 
     def hapus_tugas(self, nomor_tugas):
         try:
@@ -48,6 +57,8 @@ class ToDoApp:
                 print("Nomor tugas tidak valid.")
         except ValueError:
             print("Masukkan harus berupa angka.")
+        input("Tekan Enter untuk melanjutkan...")
+        self.clear_screen()
 
     def edit_tugas(self, nomor_tugas, tugas_baru, deadline_baru):
         try:
@@ -61,9 +72,12 @@ class ToDoApp:
                 print("Nomor tugas tidak valid.")
         except ValueError:
             print("Masukkan harus berupa angka.")
+        input("Tekan Enter untuk melanjutkan...")
+        self.clear_screen()
 
     def main(self):
         while True:
+            self.clear_screen()
             print("\n===== Menu Aplikasi To Do List ======")
             print("1. Tambah Tugas")
             print("2. Lihat Tugas")
@@ -96,6 +110,3 @@ class ToDoApp:
                         print("Invalid Input")
             except ValueError:
                 print("Mohon masukkan angka, bukan huruf!!")
-
-app = ToDoApp()
-app.main()
